@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "marked": "^2.1.3",
-    "walder": "^2.2.1"
+    "walder": "^2.2.2"
   },
   "devDependencies": {
     "http-server": "^0.12.3"
