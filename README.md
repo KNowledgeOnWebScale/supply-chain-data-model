@@ -1,7 +1,9 @@
 # Supply chain data model
 
+![UML diagram based on the requirements](mermaid-diagram-20211020135707.svg)
+
 ## Files
-- UML diagram based on the requirements: [diagram.pdf](diagram.pdf) generated from [diagram.md](diagram.md)
+- UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md)
 - Custom vocabulary: [supply-chain-vocab.ttl](supply-chain-vocab.ttl)
 - Shapes: [shapes.ttl](shapes.ttl)
 
@@ -16,7 +18,7 @@
 We created the data model as follows:
 
 1. We inspected the requirements, previously gathered from the partners, and
-   visualized the possible classes and properties in a diagram that can be found in [diagram.pdf](diagram.pdf).
+   visualized the possible classes and properties in a diagram that can be found in [diagram.svg](diagram.svg).
 2. We looked at existing vocabularies, especially within the supply chain management,
    that have the classes and properties that we acquired via the requirements.
    Grubnic and Fan[^1] highlighted the gaps in existing vocabularies targeting supply chain management,
