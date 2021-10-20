@@ -1,7 +1,7 @@
 # Supply chain data model
 
 ## Files
-- UML diagram based on the requirements: [diagram.md](diagram.md)
+- UML diagram based on the requirements: [diagram.pdf](diagram.pdf) generated from [diagram.md](diagram.md)
 - Custom vocabulary: [supply-chain-vocab.ttl](supply-chain-vocab.ttl)
 - Shapes: [shapes.ttl](shapes.ttl)
 
@@ -16,14 +16,15 @@
 We created the data model as follows:
 
 1. We inspected the requirements, previously gathered from the partners, and
-   visualized the possible classes and properties in a diagram that can be found in Appendix `diagram.pdf`.
+   visualized the possible classes and properties in a diagram that can be found in [diagram.pdf](diagram.pdf).
 2. We looked at existing vocabularies, especially within the supply chain management,
    that have the classes and properties that we acquired via the requirements.
    Grubnic and Fan[^1] highlighted the gaps in existing vocabularies targeting supply chain management,
    such as the granularity is only at the strategic level and a restricted view on a supply chain.
    The [Supply Chain Reference Ontology](https://github.com/InfoneerTXST/IOF-SupplyChain-WG)[^scro] (SCRO)
    takes these gaps into account,
-   while building on top of the [core ontology](https://www.industrialontologies.org/top-down-wg/) by the [Industrial Ontology Foundry](http://www.industrialontologies.org/) (IOF Core).
+   while building on top of the [core ontology](https://www.industrialontologies.org/top-down-wg/) 
+   by the [Industrial Ontology Foundry](http://www.industrialontologies.org/) (IOF Core).
    We were able to reuse some of SCRO's and IOF Core's classes,
    but we also had to look at vocabularies outside the supply chain management domain.
    [Schema.org](https://schema.org/), and [FRAPO](http://purl.org/cerif/frapo/) are vocabularies that we could reuse and
@@ -31,10 +32,10 @@ We created the data model as follows:
    After taking these three vocabularies into account, we still did not have all needed classes and properties.
 3. We created a custom vocabulary, focussed on supply chain management,
    with the missing classes and properties.
-   See Appendix `supply-chain-vocab.pdf` for details.
+   See [supply-chain-vocab.ttl](supply-chain-vocab.ttl) for details.
 4. Based on the requirements and the vocabularies we created SHACL shapes that state
    how the classes and properties should be used together, covering the different use case scenarios.
-   See Appendix `shapes.pdf` for details.
+   See [shapes.ttl](shapes.ttl) for details.
 
 ## Results
 On a high level, we provide a model combining vocabularies and SHACL shapes to description the following modules:
