@@ -1,0 +1,71 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+        link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", media="print" href="print.css")
+
+    body
+        - const onto = ontology[0]
+        nav.navbar.navbar-light.bg-light.border-bottom.mb-3
+            div.container
+                a.navbar-brand(href='#')
+                    h2=onto.title
+                a.btn.btn-outline-primary(href='#Classes') Classes
+                a.btn.btn-outline-primary(href='#Properties') Properties
+        div.container
+            div.row.justify-content-center.text-center.mb-3
+                div.text-white.col-12.col-xl-8.rounded-3.bg-secondary
+                    div.row.justify-content-center.mb-1
+                        div.col-8.fs-4.p-2.onto-comment!=onto.markedDescription
+                    div.row.justify-content-center.mb-1
+                        div.col-4.p-2
+                            div.fw-bold.fs-5 issued
+                            div=onto.issued_formatted
+                        div.col-4.p-2
+                            div.fw-bold.fs-5 modified
+                            div=onto.modified_formatted
+                    div.row.justify-content-center.mb-1
+                        | Created by:
+                        each creator, index in onto.creator
+                            if index > 0
+                                | ,&nbsp
+                            else
+                                | &nbsp
+                            =creator.name
+
+
+        div.container
+            div.row.justify-content-center
+                div.col-12.col-xl-8
+                    h2(id='Classes') Classes
+                    each cls in classes
+                        div.class(id=cls.id_short)
+                            h3
+                                a(href='#' + cls.id_short).fw-normal=cls.id_short
+                            div.text-success=cls.label
+                            div!=cls.marked_comment
+                    h2(id='Properties') Properties
+                    each prop in properties
+                       div.property(id=prop.id_short)
+                           h3
+                                a(href="#" + prop.id_short).fw-normal=prop.id_short
+                           div.text-success=prop.label
+                           div!=prop.marked_comment
+                           if prop.domain_short
+                               div
+                                 span.fw-bold domain:
+                                 each domain_short in prop.domain_short
+                                    | &nbsp
+                                    a(href='#' + domain_short)=domain_short
+                           if prop.range_short && prop.range_short[0]
+                               div
+                                 span.fw-bold range:
+                                 each range_short in prop.range_short
+                                   | &nbsp
+                                   a(href='#' + range_short)=range_short
+
+        footer.border-top.text-center.mt-5.pt-3
+            p &copy 2013-2021 Ghent University - IDLab, imec - Visit our&nbsp
+                a(href='https://knows.idlab.ugent.be') website

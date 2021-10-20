@@ -1,0 +1,125 @@
+openapi: 3.0.2
+info:
+  title: Test site
+  version: 0.1.0
+paths:
+  /vocab:
+    get:
+      summary: A simple path
+      responses:
+        '200':
+          description: A simple response
+          x-walder-input-text/html: template-owl.pug
+      x-walder-query:
+        graphql-query:
+          ontology: |
+            {
+              id @single
+              description @single @optional
+              title @single @optional
+              modified @single @optional
+              issued @single @optional
+              creator @plural @optional {
+                name @single
+              }
+            }
+          classes: |
+            {
+              id @single
+              type (_:Class) @single
+              label @single
+              comment @single @optional
+            }
+          properties: |
+            {
+              id @single
+              type (_:Property)
+              label @single
+              comment @single @optional
+            }
+        json-ld-context: |
+          {
+            "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "Class": "rdfs:Class",
+            "Individual": "owl:NamedIndividual",
+            "label": "rdfs:label",
+            "comment": "rdfs:comment",
+            "description": "dct:description",
+            "domain": "rdfs:domain",
+            "range": "rdfs:range",
+            "DatatypeProperty": "owl:DatatypeProperty",
+            "ObjectProperty": "owl:ObjectProperty",
+            "Property": "rdf:Property",
+            "domain": "rdfs:domain",
+            "range": "rdfs:range",
+            "dct": "http://purl.org/dc/terms/",
+            "title": "dct:title",
+            "titleEN": { "@id": "dct:title", "@language": "en" },
+            "modified": "dct:modified",
+            "issued": "dct:issued",
+            "creator": "dct:creator",
+            "foaf": "http://xmlns.com/foaf/0.1/",
+            "name": "foaf:name"
+          }
+        datasources:
+          #change this to the location of your ontology file
+          sources:
+            - http://localhost:3000/supply-chain-vocab.ttl
+      x-walder-postprocessing:
+        parseOnto:
+          source: parseOnto.js
+  /shapes:
+    get:
+      summary: A simple path
+      responses:
+        '200':
+          description: A simple response
+          x-walder-input-text/html: shacl.pug
+      x-walder-query:
+        graphql-query:
+          shapes: |
+            {
+              id @single
+              type (_:NodeShape) @single
+              target @single
+              property {
+                path @single
+                name @single
+                minCount @single @optional
+              }
+            }
+        json-ld-context: |
+          {
+            "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "sh": "http://www.w3.org/ns/shacl#",
+            "NodeShape": "sh:NodeShape",
+            "target": "sh:targetClass",
+            "property": "sh:property",
+            "path": "sh:path",
+            "minCount": "sh:minCount",
+            "maxCount": "sh:maxCount",
+            "in": "sh:in",
+            "name": "sh:name",
+            "label": "rdfs:label"
+          }
+        datasources:
+          #change this to the location of your ontology file
+          sources:
+            - http://localhost:3000/shapes.ttl
+      x-walder-postprocessing:
+        parseOnto:
+          source: parseOnto.js
+        parseShapes:
+          source: parseOnto.js
+x-walder-errors:
+  '404':
+    description: Page not found
+    x-walder-input-text/html: 404.pug
+  '500':
+    description: Internal server error
+    x-walder-input-text/html: 404.pug

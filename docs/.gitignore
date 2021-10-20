@@ -1,0 +1,7 @@
+# Project exclude paths
+/node_modules/
+.idea
+views/data-schema.md
+public/shapes.ttl
+public/supply-chain-vocab.ttl
+.DS_Store

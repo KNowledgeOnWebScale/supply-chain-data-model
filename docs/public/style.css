@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: #428bca;
+}
+
+footer {
+    color: gray;
+}
+
+.markdown {
+    /*background-color: #eaeaea;*/
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 0.5rem 0.5em 0.5em;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}
+
+pre{
+    background-color: #ffffff;
+    border-radius: .3rem;
+}
+
+.onto-comment > .markdown{
+    background-color: transparent;
+}
+
+div.class, div.property {
+    margin-bottom: 30px;
+}
+
+.shape {
+    margin-bottom: 30px
+}
+
+.target-class {
+    margin-bottom: 10px;
+}

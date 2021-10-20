@@ -1,0 +1,92 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sc:     <https://w3di.org/idlab/ns/supply-chain/#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+
+sc:
+    rdfs:comment """Supply chain vocabulary""" ;
+    dct:title    "Supply chain vocabulary"@en ;
+    dct:issued   "2021-09-21"^^xsd:date ;
+    dct:modified "2021-09-27"^^xsd:date ;
+    dct:creator  [ foaf:mbox "pieter.heyvaert@ugent.be" ;
+                   foaf:name "Pieter Heyvaert" ] .
+
+# Classes
+
+sc:LocationToLocation
+    a            rdfs:Class, schema:Thing ;
+    rdfs:label   "Location to Location" ;
+    rdfs:comment "This represents information about transporting items from one location to another." .
+
+sc:SupplierItemLocationOption
+    a            rdfs:Class, schema:Thing ;
+    rdfs:label   "Supplier Item Location Option" ;
+    rdfs:comment "This represents a combination of a supplier and an item at a specification location." .
+
+sc:LocationItemOption
+    a            rdfs:Class, schema:Thing ;
+    rdfs:label   "Location Item Option" ;
+    rdfs:comment "This represents a combination of a location and an item." .
+
+# Properties
+
+sc:servableCustomer
+    a            rdf:Property ;
+    rdfs:label   "servable customer" ;
+    rdfs:comment "Indicates a customer that you can served." .
+
+sc:buyableSupplier
+    a            rdf:Property ;
+    rdfs:label   "buyable supplier" ;
+    rdfs:comment "Indicates a supplier that you can buy from." .
+
+sc:supportedItem
+    a            rdf:Property ;
+    rdfs:label   "supported item" ;
+    rdfs:comment "Indicates an item that is supported for example by a specific location." .
+
+sc:predictionModel
+    a            rdf:Property ;
+    rdfs:label   "prediction model" ;
+    rdfs:comment "Indicates a prediction model." .
+
+sc:replenishmentMethod
+    a            rdf:Property ;
+    rdfs:label   "replenishment method" ;
+    rdfs:comment "Indicates how items are moved from one location to the other." .
+
+sc:supplierItemOption
+    a            rdf:Property ;
+    rdfs:label   "supplier item option" ;
+    rdfs:comment "Indicates the related supplier item option." .
+
+sc:quantityRestrictions
+    a            rdf:Property ;
+    rdfs:label   "quantity restrictions" ;
+    rdfs:comment "Indicates restrictions on the quantity of an item." .
+
+sc:inventoryHoldingCosts
+    a            rdf:Property ;
+    rdfs:label   "inventory holding costs" ;
+    rdfs:comment "Indicates the holding costs for an item." .
+
+sc:leadTime
+    a            rdf:Property ;
+    rdfs:label   "lead time" ;
+    rdfs:comment "Indicates the lead time of an item." .
+
+sc:netOrderCost
+    a            rdf:Property ;
+    rdfs:label   "net order costs" ;
+    rdfs:comment "Indicates the net costs of an order." .
+
+sc:deliveredQuantity
+    a            rdf:Property ;
+    rdfs:label   "delivered quantity" ;
+    rdfs:comment "Indicates the delivered quantity of an ordered item." .
+
+
+
