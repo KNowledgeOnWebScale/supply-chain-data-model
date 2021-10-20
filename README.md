@@ -1,6 +1,6 @@
 # Supply chain data model
 
-![UML diagram based on the requirements](mermaid-diagram-20211020135707.svg)
+![UML diagram based on the requirements](diagram.svg)
 
 ## Files
 - UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md)
