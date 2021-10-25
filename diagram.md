@@ -102,12 +102,23 @@ classDiagram
   %% frapo:Vendor
   class Vendor {
     String name %% schema:name
-    Item[] porfolio %% schema:hasOfferCatalog
+    VendorItemLeadTimeOption[] porfolio %% schema:hasOfferCatalog
     Location[] outbound
   }
-
-  Vendor -- Item
+  
   Vendor -- Location
+  Vendor -- VendorItemLeadTimeOption
+  
+  class VendorItemLeadTimeOption {
+    Vendor vendor
+    Item item
+    Integer leadTime
+    Integer minimumOrderQuantity
+    Integer maximumOrderQuantity
+  }
+  
+  VendorItemLeadTimeOption -- Vendor
+  VendorItemLeadTimeOption -- Item
 
   %% frapo:Quotation
   class Quotation {

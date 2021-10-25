@@ -23,16 +23,22 @@ sc:LocationToLocation
     rdfs:comment    "This represents information about transporting items from one location to another." .
 
 sc:SupplierItemLocationOption
-    a            rdfs:Class;
+    a               rdfs:Class ;
     rdfs:subClassOf schema:Thing ;
-    rdfs:label   "Supplier Item Location Option" ;
-    rdfs:comment "This represents a combination of a supplier and an item at a specification location." .
+    rdfs:label      "Supplier Item Location Option" ;
+    rdfs:comment    "This represents a combination of a supplier and an item at a specification location." .
 
 sc:LocationItemOption
-    a            rdfs:Class;
+    a               rdfs:Class ;
     rdfs:subClassOf schema:Thing ;
-    rdfs:label   "Location Item Option" ;
-    rdfs:comment "This represents a combination of a location and an item." .
+    rdfs:label      "Location Item Option" ;
+    rdfs:comment    "This represents a combination of a location and an item." .
+
+sc:VendorItemLeadTimeOption
+    a               rdfs:Class ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:label      "Vendor Item LeadTime Option" ;
+    rdfs:comment    "This represents a combination of a vendor, an item and a lead time." .
 
 # Properties
 
@@ -69,7 +75,7 @@ sc:supplierItemOption
 sc:quantityRestrictions
     a            rdf:Property ;
     rdfs:label   "quantity restrictions" ;
-    rdfs:comment "Indicates restrictions on the quantity of an item." .
+    rdfs:comment "Indicates restrictions on the quantity of an item. The object ca be a schema:QuantitativeValue" .
 
 sc:inventoryHoldingCosts
     a            rdf:Property ;
@@ -91,5 +97,8 @@ sc:deliveredQuantity
     rdfs:label   "delivered quantity" ;
     rdfs:comment "Indicates the delivered quantity of an ordered item." .
 
-
+sc:vendor
+    a            rdf:Property ;
+    rdfs:label   "vendor" ;
+    rdfs:comment "Indicates the vendor of a VendorItemLeadTimeOption." .
 

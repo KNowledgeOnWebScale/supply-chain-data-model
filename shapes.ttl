@@ -161,11 +161,31 @@ sc:VendorShape
     sh:property    [ sh:path     schema:hasOfferCatalog ;
                      sh:minCount 1 ;
                      sh:maxCount 1 ;
-                     sh:name     "portfolio of items" ] ;
+                     sh:name     "list of VendorItemLeadTimeOptions" ] ;
     sh:property    [ sh:path     schema:fromLocation ;
                      sh:class    schema:Place ;
                      sh:minCount 1 ;
                      sh:name     "outbound location" ] .
+
+sc:VendorItemLeadTimeOptionShape
+    a              sh:NodeShape ;
+    sh:targetClass sc:VendorItemLeadTimeOption ;
+    sh:property    [ sh:path     sc:supportedItem ;
+                     sh:minCount 1 ;
+                     sh:maxCount 1 ;
+                     sh:name     "indicated item" ] ;
+    sh:property    [ sh:path     sc:vendor ;
+                     sh:minCount 1 ;
+                     sh:maxCount 1 ;
+                     sh:name     "indicated vendor" ] ;
+    sh:property    [ sh:path     sc:leadTime ;
+                     sh:minCount 1 ;
+                     sh:maxCount 1 ;
+                     sh:name     "indicated lead time" ] ;
+    sh:property    [ sh:path     sc:quantityRestrictions ;
+                     sh:minCount 1 ;
+                     sh:name     "quantity restrictions of the vendor item lead time option" ] .
+
 
 sc:QuotationShape
     a              sh:NodeShape ;
