@@ -17,17 +17,20 @@ sc:
 # Classes
 
 sc:LocationToLocation
-    a            rdfs:Class, schema:Thing ;
-    rdfs:label   "Location to Location" ;
-    rdfs:comment "This represents information about transporting items from one location to another." .
+    a               rdfs:Class ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:label      "Location to Location" ;
+    rdfs:comment    "This represents information about transporting items from one location to another." .
 
 sc:SupplierItemLocationOption
-    a            rdfs:Class, schema:Thing ;
+    a            rdfs:Class;
+    rdfs:subClassOf schema:Thing ;
     rdfs:label   "Supplier Item Location Option" ;
     rdfs:comment "This represents a combination of a supplier and an item at a specification location." .
 
 sc:LocationItemOption
-    a            rdfs:Class, schema:Thing ;
+    a            rdfs:Class;
+    rdfs:subClassOf schema:Thing ;
     rdfs:label   "Location Item Option" ;
     rdfs:comment "This represents a combination of a location and an item." .
 
