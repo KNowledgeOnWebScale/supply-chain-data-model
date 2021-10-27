@@ -4,8 +4,9 @@
 
 ## Files
 - UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md)
-- Custom vocabulary: [supply-chain-vocab.ttl](supply-chain-vocab.ttl)
-- Shapes: [shapes.ttl](shapes.ttl)
+- Custom vocabulary with the missing classes and properties not found in existing vocabularies: 
+[supply-chain-vocab.ttl](supply-chain-vocab.ttl)
+- Shapes explaining how the different classes and properties are used together: [shapes.ttl](shapes.ttl)
 
 ## Documentation
 
