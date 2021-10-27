@@ -40,6 +40,12 @@ sc:SupplierItemLeadTimeOption
     rdfs:label      "Supplier Item LeadTime Option" ;
     rdfs:comment    "This represents a combination of a supplier, an item and a lead time." .
 
+sc:CustomerItemOption
+    a               rdfs:Class ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:label      "Customer Item Option" ;
+    rdfs:comment    "This represents a combination of a customer and an item." .
+
 # Properties
 
 sc:servableCustomer
