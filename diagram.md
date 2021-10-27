@@ -2,34 +2,33 @@
 classDiagram
   direction BT
 
-  %% schema:Product
   class Item {
-    String title %% schema:name
-    String description %% schema:description
-    String type %% Separate class per type
+    String title
+    String description
+    String type
   }
 
   Item -- CustomerItemOption
   Item -- SupplierItemOption
 
-  %% io:Customer and (schema:Person or schema:Organization)
   class Customer {
-    String name %% schema:name
-    String address %% schema:address (will require extra resource)
+    String name
+    String address
   }
 
   Customer -- CustomerItemOption
   Customer -- LateDeliveryPenalty
   Customer -- Location
 
-  %% frapo:Supplier and schema:Organization
   class Supplier {
-    String name %% schema:name
+    String name
+    SupplierItemLeadTimeOption[] porfolio
+    Location[] outbound
+    description("The supplier is the same as vendor.")
   }
 
-  %% schema:Place
   class Location {
-    String name %% schema:name
+    String name
     Customer[] servableCustomers
     Supplier[] buyableSuppliers
     String[] supportedItemTypes
@@ -39,35 +38,34 @@ classDiagram
 
   class CustomerItemOption {
     Item item
-    Customer customer %% schema:customer
-    Model forecastModel %% Nothing from schema.org
+    Customer customer
+    Model forecastModel
   }
 
-  %% schema:Offer
   class SupplierItemOption {
-    Supplier supplier %% schema:seller
+    Supplier supplier
     Item item 
-    Model predictionModel %% Nothing from schema.org
+    Model predictionModel
   }
 
   SupplierItemOption -- Supplier
 
   class LateDeliveryPenalty {
-    Customer customer %% schema:customer
+    Customer customer
   }
 
   class LocationToLocation {
     String[] replinshmentMethods
-    Location locationFrom %% schema:fromLocation
-    Location locationTo %% schema:toLocation
+    Location locationFrom
+    Location locationTo
   }
 
   LocationToLocation -- Location
 
   class SupplierItemLocationOption {
-    Location location %% schema:address
+    Location location
     SupplierItemOption option
-    Double price %% schema:price
+    Double price
     String quantityRestrictions
   }
 
@@ -75,7 +73,7 @@ classDiagram
   SupplierItemLocationOption -- Location
 
   class LocationItemOption {
-    Location location %% schema:address
+    Location location
     Item item
     Double inventoryHoldingCosts
   }
@@ -83,59 +81,48 @@ classDiagram
   LocationItemOption -- Item
   LocationItemOption -- Location
 
-  %% schema:Order
   class Order {
-    OrderItem[] items %% schema:orderedItem
-    Customer customer %% schema:customer
+    OrderItem[] items
+    Customer customer
   }
 
   Order -- OrderItem
 
-  %% schema:OrderItem
   class OrderItem {
-    Item item %% schema:orderedItem
-    Integer quantity %% schema:orderQuantity
+    Item item
+    Integer quantity
   }
 
   OrderItem -- Item
-
-  %% frapo:Vendor
-  class Vendor {
-    String name %% schema:name
-    VendorItemLeadTimeOption[] porfolio %% schema:hasOfferCatalog
-    Location[] outbound
-  }
   
-  Vendor -- Location
-  Vendor -- VendorItemLeadTimeOption
+  Supplier -- Location
+  Supplier -- SupplierItemLeadTimeOption
   
-  class VendorItemLeadTimeOption {
-    Vendor vendor
+  class SupplierItemLeadTimeOption {
+    Supplier supplier
     Item item
     Integer leadTime
     Integer minimumOrderQuantity
     Integer maximumOrderQuantity
   }
   
-  VendorItemLeadTimeOption -- Vendor
-  VendorItemLeadTimeOption -- Item
+  SupplierItemLeadTimeOption -- Supplier
+  SupplierItemLeadTimeOption -- Item
 
-  %% frapo:Quotation
   class Quotation {
     Integer leadTime
-    Double distance %% schema:distance 
-    Integer quantity %% schema:orderQuantity
-    Item item %% schema:orderedItem
+    Double distance
+    Integer quantity
+    Item item
   }
 
   Quotation -- Item
 
-  %% schema:ReceiveAction
   class Feedback {
     Double netOrderCost
     Integer actualDeliveredQuantity 
-    Integer actualDeliveryLeadtime %% schema:deliveryLeadTime
-    OrderItem orderItem %% schema:orderedItem
+    Integer actualDeliveryLeadtime
+    OrderItem orderItem
   }
 
   Feedback -- OrderItem

@@ -36,9 +36,17 @@ sc:SupplierShape
     sh:property    [ sh:path     rdf:type ;
                      sh:minCount 2 ;
                      sh:in       ( schema:Organization io:Supplier ) ;
-                     sh:name     "required extra classes" ] .
+                     sh:name     "required extra classes" ] ;
+    sh:property    [ sh:path     schema:hasOfferCatalog ;
+                     sh:minCount 1 ;
+                     sh:maxCount 1 ;
+                     sh:name     "list of SupplierItemLeadTimeOptions" ] ;
+    sh:property    [ sh:path     schema:fromLocation ;
+                     sh:class    schema:Place ;
+                     sh:minCount 1 ;
+                     sh:name     "outbound location" ] .
 
-sc:VendorLocationShape
+sc:SupplierLocationShape
     a              sh:NodeShape ;
     sh:targetClass scro:StorageFacility ;
     sh:property    sc:NameProperty ;
@@ -154,22 +162,10 @@ sc:OrderItemShape
                      sh:maxCount 1 ;
                      sh:name     "quantity of the item" ] .
 
-sc:VendorShape
-    a              sh:NodeShape ;
-    sh:targetClass schema:Vendor ;
-    sh:property    sc:NameProperty ;
-    sh:property    [ sh:path     schema:hasOfferCatalog ;
-                     sh:minCount 1 ;
-                     sh:maxCount 1 ;
-                     sh:name     "list of VendorItemLeadTimeOptions" ] ;
-    sh:property    [ sh:path     schema:fromLocation ;
-                     sh:class    schema:Place ;
-                     sh:minCount 1 ;
-                     sh:name     "outbound location" ] .
 
-sc:VendorItemLeadTimeOptionShape
+sc:SupplierItemLeadTimeOptionShape
     a              sh:NodeShape ;
-    sh:targetClass sc:VendorItemLeadTimeOption ;
+    sh:targetClass sc:SupplierItemLeadTimeOption ;
     sh:property    [ sh:path     sc:supportedItem ;
                      sh:minCount 1 ;
                      sh:maxCount 1 ;
@@ -177,14 +173,14 @@ sc:VendorItemLeadTimeOptionShape
     sh:property    [ sh:path     sc:vendor ;
                      sh:minCount 1 ;
                      sh:maxCount 1 ;
-                     sh:name     "indicated vendor" ] ;
+                     sh:name     "indicated supplier" ] ;
     sh:property    [ sh:path     sc:leadTime ;
                      sh:minCount 1 ;
                      sh:maxCount 1 ;
                      sh:name     "indicated lead time" ] ;
     sh:property    [ sh:path     sc:quantityRestrictions ;
                      sh:minCount 1 ;
-                     sh:name     "quantity restrictions of the vendor item lead time option" ] .
+                     sh:name     "quantity restrictions of the supplier item lead time option" ] .
 
 
 sc:QuotationShape
