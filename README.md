@@ -5,7 +5,7 @@
 ## Files
 - UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.txt](diagram.txt).
 - Custom vocabulary with the missing classes and properties not found in existing vocabularies: 
-[vocab.ttl](vocab.jsonld).
+[vocab.jsonld](vocab.jsonld).
 Metadata about the vocabulary: [vocab-extra.ttl](vocab-extra.ttl)
 - Shapes explaining how the different classes and properties are used together: [shapes.jsonld](shapes.jsonld).
 
