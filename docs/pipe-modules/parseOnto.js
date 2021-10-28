@@ -92,8 +92,8 @@ module.exports = {
 function linkToLabel(link) {
   if (link.includes('schema.org')) {
     return link.replace('https://schema.org/', 'schema:');
-  } else if (link.includes('https://w3di.org/idlab/ns/supply-chain/#')) {
-    return link.replace('https://w3di.org/idlab/ns/supply-chain/#', 'sc:');
+  } else if (link.includes('https://w3id.org/idlab/ns/supply-chain/#')) {
+    return link.replace('https://w3id.org/idlab/ns/supply-chain/#', 'sc:');
   } else if (link.includes('http://www.w3.org/1999/02/22-rdf-syntax-ns#')) {
     return link.replace('http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'rdf:');
   } else if (link.includes('http://purl.org/cerif/frapo/')) {
