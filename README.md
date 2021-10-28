@@ -3,7 +3,7 @@
 ![UML diagram based on the requirements](diagram.svg)
 
 ## Files
-- UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md).
+- UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.txt](diagram.txt).
 - Custom vocabulary with the missing classes and properties not found in existing vocabularies: 
 [vocab.ttl](vocab.jsonld).
 Metadata about the vocabulary: [vocab-extra.ttl](vocab-extra.ttl)
