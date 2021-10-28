@@ -110,7 +110,7 @@ classDiagram
     Customer customer schema:customer
   }
 
-  LateDeliveryPenalty -- "1" customer
+  LateDeliveryPenalty -- "1" Customer
 
   class LocationToLocation {
     @type sc:LocationToLocation
