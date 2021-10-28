@@ -357,13 +357,14 @@
           "path": {
             "@id": "schema:customer"
           },
-          "name": "customer"
+          "name": "customer",
+          "class": {
+            "@id": "io:Customer"
+          },
+          "minCount": 1,
+          "maxCount": 1
         }
       ]
-    },
-    {
-      "@id": "sc:customerShape",
-      "@type": "NodeShape"
     },
     {
       "@id": "sc:LocationToLocationShape",
