@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "copy": "cp ../*.ttl public",
+    "copy": "cp ../*.ttl public; cp ../*.jsonld public",
     "run": "npm run copy; node node_modules/walder/bin/cli.js -c config.yaml",
     "serve": "http-server",
     "debug": "npm run copy; node node_modules/walder/bin/cli.js -c config.yaml --log debug"

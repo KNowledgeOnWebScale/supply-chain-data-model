@@ -3,10 +3,11 @@
 ![UML diagram based on the requirements](diagram.svg)
 
 ## Files
-- UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md)
+- UML diagram based on the requirements: [diagram.svg](diagram.svg) generated from [diagram.md](diagram.md).
 - Custom vocabulary with the missing classes and properties not found in existing vocabularies: 
-[supply-chain-vocab.ttl](supply-chain-vocab.ttl)
-- Shapes explaining how the different classes and properties are used together: [shapes.ttl](shapes.ttl)
+[vocab.ttl](vocab.jsonld).
+Metadata about the vocabulary: [vocab-extra.ttl](vocab-extra.ttl)
+- Shapes explaining how the different classes and properties are used together: [shapes.jsonld](shapes.jsonld).
 
 ## Documentation
 

@@ -2,6 +2,6 @@
 /node_modules/
 .idea
 views/data-schema.md
-public/shapes.ttl
-public/supply-chain-vocab.ttl
+public/*.ttl
+public/*.jsonld
 .DS_Store

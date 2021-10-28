@@ -1,0 +1,239 @@
+classDiagram
+  direction BT
+
+  class Item {
+    @type schema:Product
+
+    string name schema:name 1..*
+    string description schema:description 1..*
+  }
+
+  Item -- CustomerItemOption
+  Item -- SupplierItemOption
+
+  class Customer {
+    @type io:Customer
+    @extraTypes schema:Person schema:Organization 2
+
+    string name schema:name 1..*
+
+    Address address schema:address
+  }
+
+  Customer -- "1..*" Address
+
+  class Address {
+    @type schema:PostalAddress
+  }
+
+  class CustomerLocation {
+    @type schema:Place
+
+    Address address schema:address
+  }
+
+  CustomerLocation -- "1..*" Address
+
+  class Supplier {
+    @type io:Supplier
+    @extraTypes schema:Organization
+    @comment The supplier is the same as vendor.
+
+    string name schema:name 1..*
+
+    SupplierItemLeadTimeOption[] porfolio schema:hasOfferCatalog
+    SupplierLocation[] outbound schema:fromLocation
+  }
+
+  Supplier -- "1" SupplierItemLeadTimeOption
+  Supplier -- "1..*" SupplierLocation
+
+  class SupplierLocation {
+    @type scro:StorageFacility
+    @extraTypes schema:Place
+
+    string name schema:name 1..*
+
+    Customer[] servableCustomers sc:servableCustomer
+    @label servable customer
+    @comment Indicates a customer that you can served.
+
+    Supplier[] buyableSuppliers sc:buyableSupplier
+    @label buyable supplier
+    @comment Indicates a supplier that you can buy from.
+
+    Item[] supportedItemTypes sc:supportedItem
+    @label supported item
+    @comment Indicates an item that is supported for example by a specific location.
+  }
+
+  SupplierLocation -- "0..*" Customer
+  SupplierLocation -- "0..*" Supplier
+  SupplierLocation -- "1..*" Item
+
+  class CustomerItemOption {
+    @type sc:CustomerItemOption
+    @label Customer Item Option
+    @comment This represents a combination of a customer and an item.
+
+    Item item sc:supportedItem
+    Customer customer schema:customer
+    Model forecastModel sc:forecastModel
+  }
+
+  CustomerItemOption -- "1" Item
+  CustomerItemOption -- "1" Customer
+  CustomerItemOption -- "1" Model
+
+  class Model {
+    @type sc:Model
+  }
+
+  class SupplierItemOption {
+    @type schema:Offer
+
+    Supplier supplier schema:seller
+    Item item sc:supportedItem 1
+
+    Model predictionModel sc:predictionModel 1
+    @label prediction model
+    @comment Indicates a prediction model.
+  }
+
+  SupplierItemOption -- "1" Supplier
+  SupplierItemOption -- "1" Item
+  SupplierItemOption -- "1" Model
+
+  class LateDeliveryPenalty {
+    @type schema:Offer
+
+    Customer customer schema:customer
+  }
+
+  LateDeliveryPenalty -- "1" customer
+
+  class LocationToLocation {
+    @type sc:LocationToLocation
+    @label Location to Location
+    @comment This represents information about transporting items from one location to another.
+
+    string[] replenishmentMethods sc:replenishmentMethod 1..*
+    @label replenishment method
+    @comment Indicates how items are moved from one location to the other.
+
+    SupplierLocation locationFrom schema:fromLocation
+    SupplierLocation locationTo schema:toLocation
+  }
+
+  LocationToLocation -- "1" SupplierLocation
+
+  class SupplierItemLocationOption {
+    @type sc:SupplierItemLocationOption
+    @label Supplier Item Location Option
+    @comment This represents a combination of a supplier and an item at a specification location.
+
+    double price schema:price 1
+    string quantityRestrictions sc:quantityRestrictions 1..*
+
+    SupplierLocation location schema:address
+    SupplierItemOption option sc:supplierItemOption
+    @label supplier item option
+    @comment Indicates the related supplier item option.
+  }
+
+  SupplierItemLocationOption -- "1" SupplierItemOption
+  SupplierItemLocationOption -- "1" SupplierLocation
+
+  class LocationItemOption {
+    @type sc:LocationItemOption
+    @label Location Item Option
+    @comment This represents a combination of a location and an item.
+
+    double inventoryHoldingCosts sc:inventoryHoldingCost 1
+    @label inventory holding costs
+    @comment Indicates the holding costs for an item.
+
+    SupplierLocation location schema:address
+    Item item sc:supportedItem
+  }
+
+  LocationItemOption -- "1" Item
+  LocationItemOption -- "1" SupplierLocation
+
+  class Order {
+    @type schema:OrderItem
+
+    OrderItem[] items schema:orderedItem
+    Customer customer schema:customer
+  }
+
+  Order -- "1..*" OrderItem
+  Order -- "1" Customer
+
+  class OrderItem {
+    @type schema:OrderItem
+
+    integer quantity schema:orderQuantity 1
+
+    Item item schema:orderedItem
+  }
+
+  OrderItem -- "1" Item
+
+  class SupplierItemLeadTimeOption {
+    @type sc:SupplierItemLeadTimeOption
+    @label Supplier Item LeadTime Option
+    @comment This represents a combination of a supplier, an item and a lead time.
+
+    integer leadTime sc:leadTime 1
+    @label lead time
+    @comment Indicates the lead time of an item.
+
+    QuantitativeValue minMaxOrderQuantity sc:quantityRestrictions
+    @label quantity restrictions
+    @comment Indicates restrictions on the quantity of an item. The object can be a schema:QuantitativeValue.
+
+    Supplier supplier sc:supplier
+    @label supplier
+    @comment Indicates the supplier of a SupplierItemLeadTimeOption.
+
+    Item item sc:supportedItem
+  }
+
+  SupplierItemLeadTimeOption -- "1" QuantitativeValue
+  SupplierItemLeadTimeOption -- "1" Supplier
+  SupplierItemLeadTimeOption -- "1" Item
+
+  class QuantitativeValue {
+    @type schema:QuantitativeValue
+  }
+
+  class Quotation {
+    @type frapo:Quotation
+
+    integer leadTime sc:leadTime 1
+    double distance schema:distance 1
+    integer quantity schema:orderQuantity 1
+
+    Item item sc:supportedItem
+  }
+
+  Quotation -- "1" Item
+
+  class Feedback {
+    @type scro:ReceivingProcess
+
+    double netOrderCost sc:netOrderCost 1
+    @label net order cost
+    @comment Indicates the net costs of an order.
+
+    integer actualDeliveredQuantity sc:deliveredQuantity 1
+    @label delivery quantity
+    @comment Indicates the delivered quantity of an ordered item.
+
+    integer actualDeliveryLeadtime schema:deliveryLeadTime 1
+
+    OrderItem orderItem schema:orderedItem
+  }
+
+  Feedback -- "1" OrderItem

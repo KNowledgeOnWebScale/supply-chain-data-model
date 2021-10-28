@@ -67,7 +67,8 @@ paths:
         datasources:
           #change this to the location of your ontology file
           sources:
-            - http://localhost:3000/supply-chain-vocab.ttl
+            - http://localhost:3000/vocab.jsonld
+            - http://localhost:3000/vocab-extra.ttl
       x-walder-postprocessing:
         parseOnto:
           source: parseOnto.js
@@ -110,7 +111,7 @@ paths:
         datasources:
           #change this to the location of your ontology file
           sources:
-            - http://localhost:3000/shapes.ttl
+            - http://localhost:3000/shapes.jsonld
       x-walder-postprocessing:
         parseOnto:
           source: parseOnto.js
