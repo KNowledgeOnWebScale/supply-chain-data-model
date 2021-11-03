@@ -1,166 +1,166 @@
 {
   "@context": {
-    "@vocab": "https://w3id.org/idlab/ns/supply-chain/#",
+    "@vocab": "http://www.w3.org/2000/01/rdf-schema#",
     "schema": "https://schema.org/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "sc": "https://w3id.org/idlab/ns/supply-chain/#"
   },
   "@graph": [
     {
-      "@id": "CustomerItemOption",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:CustomerItemOption",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       },
-      "rdfs:label": "Customer Item Option",
-      "rdfs:comment": "This represents a combination of a customer and an item."
+      "label": "Customer Item Option",
+      "comment": "This represents a combination of a customer and an item."
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property",
-      "rdfs:label": "supported item",
-      "rdfs:comment": "Indicates an item that is supported for example by a specific location."
+      "label": "supported item",
+      "comment": "Indicates an item that is supported for example by a specific location."
     },
     {
-      "@id": "forecastModel",
+      "@id": "sc:forecastModel",
       "@type": "rdf:Property"
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property"
     },
     {
-      "@id": "predictionModel",
+      "@id": "sc:predictionModel",
       "@type": "rdf:Property",
-      "rdfs:label": "prediction model",
-      "rdfs:comment": "Indicates a prediction model."
+      "label": "prediction model",
+      "comment": "Indicates a prediction model."
     },
     {
-      "@id": "SupplierItemLeadTimeOption",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:SupplierItemLeadTimeOption",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       },
-      "rdfs:label": "Supplier Item LeadTime Option",
-      "rdfs:comment": "This represents a combination of a supplier, an item and a lead time."
+      "label": "Supplier Item LeadTime Option",
+      "comment": "This represents a combination of a supplier, an item and a lead time."
     },
     {
-      "@id": "leadTime",
+      "@id": "sc:leadTime",
       "@type": "rdf:Property",
-      "rdfs:label": "lead time",
-      "rdfs:comment": "Indicates the lead time of an item."
+      "label": "lead time",
+      "comment": "Indicates the lead time of an item."
     },
     {
-      "@id": "quantityRestrictions",
+      "@id": "sc:quantityRestrictions",
       "@type": "rdf:Property",
-      "rdfs:label": "quantity restrictions",
-      "rdfs:comment": "Indicates restrictions on the quantity of an item. The object can be a schema:QuantitativeValue."
+      "label": "quantity restrictions",
+      "comment": "Indicates restrictions on the quantity of an item. The object can be a schema:QuantitativeValue."
     },
     {
-      "@id": "supplier",
+      "@id": "sc:supplier",
       "@type": "rdf:Property",
-      "rdfs:label": "supplier",
-      "rdfs:comment": "Indicates the supplier of a SupplierItemLeadTimeOption."
+      "label": "supplier",
+      "comment": "Indicates the supplier of a SupplierItemLeadTimeOption."
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property"
     },
     {
-      "@id": "servableCustomer",
+      "@id": "sc:servableCustomer",
       "@type": "rdf:Property",
-      "rdfs:label": "servable customer",
-      "rdfs:comment": "Indicates a customer that you can served."
+      "label": "servable customer",
+      "comment": "Indicates a customer that you can served."
     },
     {
-      "@id": "buyableSupplier",
+      "@id": "sc:buyableSupplier",
       "@type": "rdf:Property",
-      "rdfs:label": "buyable supplier",
-      "rdfs:comment": "Indicates a supplier that you can buy from."
+      "label": "buyable supplier",
+      "comment": "Indicates a supplier that you can buy from."
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property"
     },
     {
-      "@id": "Model",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:Model",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       }
     },
     {
-      "@id": "LocationToLocation",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:LocationToLocation",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       },
-      "rdfs:label": "Location to Location",
-      "rdfs:comment": "This represents information about transporting items from one location to another."
+      "label": "Location to Location",
+      "comment": "This represents information about transporting items from one location to another."
     },
     {
-      "@id": "replenishmentMethod",
+      "@id": "sc:replenishmentMethod",
       "@type": "rdf:Property",
-      "rdfs:label": "replenishment method",
-      "rdfs:comment": "Indicates how items are moved from one location to the other."
+      "label": "replenishment method",
+      "comment": "Indicates how items are moved from one location to the other."
     },
     {
-      "@id": "SupplierItemLocationOption",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:SupplierItemLocationOption",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       },
-      "rdfs:label": "Supplier Item Location Option",
-      "rdfs:comment": "This represents a combination of a supplier and an item at a specification location."
+      "label": "Supplier Item Location Option",
+      "comment": "This represents a combination of a supplier and an item at a specification location."
     },
     {
-      "@id": "quantityRestrictions",
+      "@id": "sc:quantityRestrictions",
       "@type": "rdf:Property"
     },
     {
-      "@id": "supplierItemOption",
+      "@id": "sc:supplierItemOption",
       "@type": "rdf:Property",
-      "rdfs:label": "supplier item option",
-      "rdfs:comment": "Indicates the related supplier item option."
+      "label": "supplier item option",
+      "comment": "Indicates the related supplier item option."
     },
     {
-      "@id": "LocationItemOption",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
+      "@id": "sc:LocationItemOption",
+      "@type": "Class",
+      "subClassOf": {
         "@id": "schema:Thing"
       },
-      "rdfs:label": "Location Item Option",
-      "rdfs:comment": "This represents a combination of a location and an item."
+      "label": "Location Item Option",
+      "comment": "This represents a combination of a location and an item."
     },
     {
-      "@id": "inventoryHoldingCost",
+      "@id": "sc:inventoryHoldingCost",
       "@type": "rdf:Property",
-      "rdfs:label": "inventory holding costs",
-      "rdfs:comment": "Indicates the holding costs for an item."
+      "label": "inventory holding costs",
+      "comment": "Indicates the holding costs for an item."
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property"
     },
     {
-      "@id": "leadTime",
+      "@id": "sc:leadTime",
       "@type": "rdf:Property"
     },
     {
-      "@id": "supportedItem",
+      "@id": "sc:supportedItem",
       "@type": "rdf:Property"
     },
     {
-      "@id": "netOrderCost",
+      "@id": "sc:netOrderCost",
       "@type": "rdf:Property",
-      "rdfs:label": "net order cost",
-      "rdfs:comment": "Indicates the net costs of an order."
+      "label": "net order cost",
+      "comment": "Indicates the net costs of an order."
     },
     {
-      "@id": "deliveredQuantity",
+      "@id": "sc:deliveredQuantity",
       "@type": "rdf:Property",
-      "rdfs:label": "delivery quantity",
-      "rdfs:comment": "Indicates the delivered quantity of an ordered item."
+      "label": "delivery quantity",
+      "comment": "Indicates the delivered quantity of an ordered item."
     }
   ]
 }
